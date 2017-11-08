@@ -62,25 +62,6 @@ var template = React.createElement(
         )
     )
 );
-var templateTwo = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        'Simon'
-    ),
-    React.createElement(
-        'p',
-        null,
-        'Age: 35'
-    ),
-    React.createElement(
-        'p',
-        null,
-        'Location: Sydney'
-    )
-);
 var userName = 'Simon2';
 var userAge = '35';
 var Location = 'Melbourne';
