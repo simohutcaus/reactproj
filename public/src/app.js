@@ -21,26 +21,49 @@ function arraycheck() {
 }
 
 const template = <div><h1>{app.title}</h1>{app.subtitle && <p>{app.subtitle}</p>}<p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p><ol><li>Item One</li><li>Item Two</li></ol></div>;
-const userName = 'Simon2';
-const userAge = '35';
-const Location = 'Melbourne';
-const user =  {
 
-name: 'Simon',
-age: '35',
-location: 'Sydney'
+let count = 0;
+const addOne = () => {
+count = count + 1;
+renderCounterApp();
+
 };
 
-function getLocation(location) {
+const minusOne = () => {
+count = count -1;
+renderCounterApp();
+console.log("minusone");
 
-    if (location) {
-        return <p>Location: {location}</p>
-    } 
-}
+};
+
+const reset = () => {
+count = 0;
+renderCounterApp();
+console.log("reset");
+};
+
+
+//console.log(templateTwo);
 
 
 const appRoot = document.getElementById('app');
 
-const templateTwo = <div><h1>{user.name ? user.name : 'Anonymous'}</h1>{(user.age && user.age >= 18) && <p>Age: {user.age}</p>}{getLocation(user.location)}</div>;
 
-ReactDOM.render(template, appRoot);
+const renderCounterApp = () => {
+
+const templateTwo = (
+
+    <div>
+    <h1>Count: {count}</h1>
+    <button onClick={addOne}>+1</button>
+    <button onClick={minusOne}>-1</button>
+    <button onClick={reset}>reset</button>
+    </div>
+
+);
+
+ReactDOM.render(templateTwo, appRoot);
+
+};
+
+renderCounterApp();
