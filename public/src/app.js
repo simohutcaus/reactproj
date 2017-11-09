@@ -6,8 +6,32 @@ const app = {
 
 title: 'Indecision App',
 subtitle: 'This is a app',
-options: ['One', 'Two']
+options: []
 
+};
+
+
+
+const onFormSubmit = (e) => {
+e.preventDefault();
+//console.log("form submitted");
+const option = e.target.elements.option.value;
+
+if (option)  {
+
+    app.options.push(option);
+    e.target.elements.option.value = '';
+    render();
+}
+
+
+
+};
+
+const onRemoveAll = () => {
+
+app.options = [];
+render();
 };
 
 
@@ -20,50 +44,46 @@ function arraycheck() {
     }
 }
 
-const template = <div><h1>{app.title}</h1>{app.subtitle && <p>{app.subtitle}</p>}<p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p><ol><li>Item One</li><li>Item Two</li></ol></div>;
+const onMakeDecision = () => {
 
-let count = 0;
-const addOne = () => {
-count = count + 1;
-renderCounterApp();
-
-};
-
-const minusOne = () => {
-count = count -1;
-renderCounterApp();
-console.log("minusone");
-
-};
-
-const reset = () => {
-count = 0;
-renderCounterApp();
-console.log("reset");
+const randomNum =  Math.floor(Math.random() * app.options.length);
+const option = app.options[randomNum];
+alert(option);
 };
 
 
-//console.log(templateTwo);
+
+const render = () => {
+
+const template = ( <div>
+<h1>{app.title}</h1>
+{app.subtitle && <p>{app.subtitle}</p>}
+<p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
+<button disabled={app.options.length === 0} onClick={onMakeDecision}>What should i do?</button>
+<button onClick={onRemoveAll}>Remove All</button>
+<ol>
+{
+    app.options.map((option)=> {
+
+        return <li key={option}>{option}</li>;
+
+    })
+}
+</ol>
+<form onSubmit={onFormSubmit}>
+<input type="text" name="option"/>
+<button>Add Option</button>
+</form>
+</div>
+
+);
+
+ReactDOM.render(template, appRoot);
+
+};
 
 
 const appRoot = document.getElementById('app');
 
+render();
 
-const renderCounterApp = () => {
-
-const templateTwo = (
-
-    <div>
-    <h1>Count: {count}</h1>
-    <button onClick={addOne}>+1</button>
-    <button onClick={minusOne}>-1</button>
-    <button onClick={reset}>reset</button>
-    </div>
-
-);
-
-ReactDOM.render(templateTwo, appRoot);
-
-};
-
-renderCounterApp();
