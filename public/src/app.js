@@ -12,6 +12,7 @@ class IndecisionApp extends React.Component {
         };
     }
 
+//test 
 
     componentDidMount () {
         try {

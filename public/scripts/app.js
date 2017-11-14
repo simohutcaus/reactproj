@@ -27,6 +27,8 @@ var IndecisionApp = function (_React$Component) {
         return _this;
     }
 
+    //test 
+
     _createClass(IndecisionApp, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
