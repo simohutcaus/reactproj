@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-const Option  = (props) => {
-
-    return (
+const Option  = (props) => (
         <div>
         {props.optionText}
         <button onClick={
@@ -14,10 +12,5 @@ const Option  = (props) => {
         }>remove</button>
         </div>
     )
-    
-
-
-
-};
 
 export default Option;
