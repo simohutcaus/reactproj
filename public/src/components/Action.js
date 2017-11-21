@@ -6,7 +6,7 @@ const Action = (props) => (
         <div>
             <button 
             onClick={props.handlePick} disabled={!props.hasOptions}
-            >What should i do? 
+            className="big-button">What should i do? 
             </button>
         </div>
     );

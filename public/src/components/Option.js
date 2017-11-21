@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 
 
 const Option  = (props) => (
-        <div>
-        {props.optionText}
+        <div className="option">
+        <p className="option__text">{props.count}. {props.optionText}</p>
         <button onClick={
             (e) => {
                 props.handleDeleteOption(props.optionText);
             }
-        }>remove</button>
+        } className="button button--link">remove</button>
         </div>
     )
 
